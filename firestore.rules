@@ -1,0 +1,56 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && request.auth.token.email == 'elamin1509@gmail.com';
+    }
+
+    function isValidWorkspace(data) {
+      return data.ownerId is string &&
+             data.ownerId.size() <= 128 &&
+             (data.ownerId == request.auth.uid || isAdmin()) &&
+             data.school is map &&
+             data.classes is list &&
+             data.classes.size() <= 100;
+    }
+
+    match /workspaces/{workspaceId} {
+      allow get: if isSignedIn() && isValidId(workspaceId) && (existing().ownerId == request.auth.uid || isAdmin());
+      allow list: if isSignedIn() && (resource.data.ownerId == request.auth.uid || isAdmin());
+
+      allow create: if isSignedIn() && isValidId(workspaceId) &&
+        isValidWorkspace(incoming()) &&
+        (incoming().ownerId == request.auth.uid || isAdmin());
+
+      allow update: if isSignedIn() && isValidId(workspaceId) &&
+        (existing().ownerId == request.auth.uid || isAdmin()) &&
+        isValidWorkspace(incoming()) &&
+        incoming().ownerId == existing().ownerId;
+
+      allow delete: if isSignedIn() && isValidId(workspaceId) &&
+        (existing().ownerId == request.auth.uid || isAdmin());
+    }
+  }
+}

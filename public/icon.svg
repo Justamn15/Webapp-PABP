@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4338ca"/>
+      <stop offset="100%" stop-color="#312e81"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background Circle / Squircle -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)"/>
+  
+  <!-- Subtle inner border -->
+  <rect x="16" y="16" width="480" height="480" rx="96" fill="none" stroke="#ffffff" stroke-width="6" stroke-opacity="0.15"/>
+
+  <!-- Content Group with Drop Shadow -->
+  <g filter="url(#shadow)" transform="translate(0, 10)">
+    <!-- Graduation Cap Mortarboard Top -->
+    <polygon points="256,120 410,185 256,250 102,185" fill="#ffffff"/>
+    
+    <!-- Cap Underneath / Skull Cap -->
+    <path d="M 170,225 L 170,295 C 170,335 342,335 342,295 L 342,225 Z" fill="#e0e7ff"/>
+
+    <!-- Tassel Ribbon & Button -->
+    <circle cx="256" cy="185" r="14" fill="url(#goldGrad)"/>
+    <path d="M 256,185 C 330,195 385,240 385,290" fill="none" stroke="url(#goldGrad)" stroke-width="10" stroke-linecap="round"/>
+    <rect x="375" y="290" width="20" height="35" rx="6" fill="url(#goldGrad)"/>
+
+    <!-- Open Book Below Cap -->
+    <!-- Left Page -->
+    <path d="M 256,360 C 220,340 160,340 120,355 L 120,415 C 160,400 220,400 256,420 Z" fill="#ffffff"/>
+    <!-- Right Page -->
+    <path d="M 256,360 C 292,340 352,340 392,355 L 392,415 C 352,400 292,400 256,420 Z" fill="#f8fafc"/>
+    <!-- Book Spine Line -->
+    <line x1="256" y1="360" x2="256" y2="425" stroke="#4338ca" stroke-width="6" stroke-linecap="round"/>
+    <!-- Page Lines on Left -->
+    <line x1="145" y1="375" x2="230" y2="375" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round"/>
+    <line x1="145" y1="392" x2="215" y2="392" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round"/>
+    <!-- Page Lines on Right -->
+    <line x1="282" y1="375" x2="367" y2="375" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round"/>
+    <line x1="297" y1="392" x2="367" y2="392" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- Star Emblem of Excellence -->
+    <polygon points="256,290 262,305 278,306 265,316 270,331 256,321 242,331 247,316 234,306 250,305" fill="url(#goldGrad)"/>
+  </g>
+</svg>

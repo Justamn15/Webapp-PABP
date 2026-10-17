@@ -1,0 +1,6 @@
+{
+  "name": "Sistem Kehadiran & Penilaian Guru",
+  "description": "Aplikasi manajemen kehadiran, legger nilai kurikulum merdeka, rekapitulasi dan cetak dokumen resmi guru SD.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

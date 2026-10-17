@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Lingkaran Biru Luar -->
+  <circle cx="100" cy="100" r="92" fill="#0284c7" stroke="#0369a1" stroke-width="3"/>
+  <circle cx="100" cy="100" r="85" fill="#ffffff"/>
+  <circle cx="100" cy="100" r="82" fill="#0ea5e9"/>
+
+  <!-- Sayap Kiri dan Kanan (Bulu Sayap Tut Wuri) -->
+  <g fill="#fbbf24" stroke="#d97706" stroke-width="1.5">
+    <!-- Sayap Kiri -->
+    <path d="M 100,105 C 75,90 40,95 32,120 C 45,130 70,128 95,120 Z"/>
+    <path d="M 100,115 C 80,105 50,110 42,132 C 55,140 78,138 98,128 Z"/>
+    <!-- Sayap Kanan -->
+    <path d="M 100,105 C 125,90 160,95 168,120 C 155,130 130,128 105,120 Z"/>
+    <path d="M 100,115 C 120,105 150,110 158,132 C 145,140 122,138 102,128 Z"/>
+  </g>
+
+  <!-- Belencong / Api di Tengah -->
+  <path d="M 100,50 C 90,68 85,82 92,98 C 96,106 104,106 108,98 C 115,82 110,68 100,50 Z" fill="#ef4444" stroke="#b91c1c" stroke-width="1.5"/>
+  <path d="M 100,60 C 95,72 93,80 97,90 C 99,94 101,94 103,90 C 107,80 105,72 100,60 Z" fill="#fbbf24"/>
+
+  <!-- Buku Terbuka di Bawah -->
+  <path d="M 100,135 C 82,128 60,132 50,145 C 70,140 88,142 100,152 C 112,142 130,140 150,145 C 140,132 118,128 100,135 Z" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+  <line x1="100" y1="135" x2="100" y2="152" stroke="#0284c7" stroke-width="2"/>
+</svg>

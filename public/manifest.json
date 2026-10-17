@@ -1,0 +1,40 @@
+{
+  "id": "/",
+  "name": "Sistem Kehadiran & Penilaian Guru - SDN 5 Kandangan Barat",
+  "short_name": "Presensi Guru",
+  "description": "Aplikasi presensi kehadiran, penilaian kurikulum merdeka, dan cetak dokumen resmi SDN 5 Kandangan Barat.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#4338ca",
+  "background_color": "#4338ca",
+  "lang": "id",
+  "categories": ["education", "productivity"],
+  "icons": [
+    {
+      "src": "/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

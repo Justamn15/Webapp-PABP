@@ -1,0 +1,147 @@
+{
+  "entities": {
+    "SchoolProfile": {
+      "title": "SchoolProfile",
+      "description": "School institutional data, letterhead information, and grading criteria",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "School name",
+          "maxLength": 200
+        },
+        "address": {
+          "type": "string",
+          "description": "Full school address",
+          "maxLength": 300
+        },
+        "subject": {
+          "type": "string",
+          "description": "Subject taught",
+          "maxLength": 150
+        },
+        "teacher": {
+          "type": "string",
+          "description": "Teacher name with title",
+          "maxLength": 150
+        },
+        "nip": {
+          "type": "string",
+          "description": "Teacher NIP or NI PPPK number",
+          "maxLength": 50
+        },
+        "headName": {
+          "type": "string",
+          "description": "Principal name with title",
+          "maxLength": 150
+        },
+        "headNip": {
+          "type": "string",
+          "description": "Principal NIP number",
+          "maxLength": 50
+        },
+        "kkm": {
+          "type": "number",
+          "description": "Minimum passing score"
+        },
+        "place": {
+          "type": "string",
+          "description": "Document issuance location",
+          "maxLength": 100
+        },
+        "logo": {
+          "type": "string",
+          "description": "School logo base64 or URL"
+        },
+        "semester": {
+          "type": "string",
+          "description": "Academic semester description",
+          "maxLength": 100
+        },
+        "logoKiriJurnal": {
+          "type": "string",
+          "description": "Left header logo for teaching journal base64"
+        },
+        "logoKananJurnal": {
+          "type": "string",
+          "description": "Right header logo for teaching journal base64"
+        },
+        "ttdGuru": {
+          "type": "string",
+          "description": "PABP Teacher signature image base64"
+        },
+        "ttdKepalaSekolah": {
+          "type": "string",
+          "description": "School Principal signature image base64"
+        },
+        "stempelSekolah": {
+          "type": "string",
+          "description": "School stamp image base64"
+        }
+      },
+      "required": ["name", "subject", "teacher", "kkm"]
+    },
+    "TeacherData": {
+      "title": "TeacherData",
+      "description": "Complete teacher workspace document with school profile, classes, attendance, and grades",
+      "type": "object",
+      "properties": {
+        "ownerId": {
+          "type": "string",
+          "description": "Owner user ID",
+          "maxLength": 128
+        },
+        "ownerEmail": {
+          "type": "string",
+          "description": "Owner email address",
+          "maxLength": 150
+        },
+        "school": {
+          "type": "object",
+          "description": "School profile info"
+        },
+        "classes": {
+          "type": "array",
+          "description": "List of classes and their students"
+        },
+        "attendance": {
+          "type": "object",
+          "description": "Map of student attendance statuses"
+        },
+        "nilai": {
+          "type": "object",
+          "description": "Map of grades and assessments"
+        },
+        "keteranganTugas": {
+          "type": "object",
+          "description": "Map of task descriptions"
+        },
+        "currentPeriodId": {
+          "type": "string",
+          "description": "Active academic period identifier",
+          "maxLength": 64
+        },
+        "periods": {
+          "type": "object",
+          "description": "Historical map of academic periods (years and semesters)"
+        },
+        "journal": {
+          "type": "object",
+          "description": "Map of monthly teaching journal records"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Last update timestamp",
+          "maxLength": 64
+        }
+      },
+      "required": ["ownerId", "school", "classes"]
+    }
+  },
+  "firestore": {
+    "/workspaces/{workspaceId}": {
+      "schema": "TeacherData",
+      "description": "Stores user workspace attendance, grades, classes, and school settings in the cloud"
+    }
+  }
+}
